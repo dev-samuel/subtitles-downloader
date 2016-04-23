@@ -7,13 +7,11 @@
 # TODO: Add requirements.txt file
 # TODO: Add GUI?
 
-import urllib
-import urllib.request
 import requests
 from bs4 import BeautifulSoup
 
 class SubtitleDownloader:
-    """Downloads, renames subtitles and 
+    """Downloads and renames subtitles. Also 
     puts them in the correct folder.
     """
 
@@ -58,4 +56,4 @@ class SubtitleDownloader:
 
 if __name__ == '__main__':
     sd = SubtitleDownloader()
-    sd.download_subtitles('modern-family', 's07e14', 'KILLERS', 'english')
+    sd.download_subtitles('series', 'episode', 'host', 'language')
