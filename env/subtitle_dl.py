@@ -45,9 +45,13 @@ class SubtitleDownloader:
                         download_link = url + link.get('href')
                         break
 
+        # UnboundLocalError gets called when the downloader 
+        # variable tries to use the download_link variable if
+        # the download_link never gets assigned a link in 
+        # the code above.
         try:
             downloader = requests.get(download_link)
-            with open('subtitles.rar', 'wb') as outfile:
+            with open('subtitles.zip', 'wb') as outfile:
                 print('Downloading file...')
                 outfile.write(downloader.content)
         except UnboundLocalError:
@@ -56,4 +60,4 @@ class SubtitleDownloader:
 
 if __name__ == '__main__':
     sd = SubtitleDownloader()
-    sd.download_subtitles('series', 'episode', 'host', 'language')
+    sd.download_subtitles('suits', 's05e01', 'KILLERS')
